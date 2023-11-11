@@ -48,8 +48,10 @@ function replyComment(id_comment, user_name) {
   formTemplate += `<label for="reply_comment_${id_comment}">Responder a ${user_name}</label>`;
   formTemplate += `<textarea class="form-control" id="reply_comment_textarea${id_comment}" rows="3"></textarea>`;
   formTemplate += `</div>`;
+  formTemplate += `<div class="d-flex flex-row col-12 justify-content-end">`;
   formTemplate += `<button class="btn btn-primary">Responder</button>`;
   formTemplate += `<button class="btn btn-danger" onclick="cancelReply(${id_comment})">cancelar</button>`;
+  formTemplate += `</div>`;
   formTemplate += `</div>`;
   $("#comment_" + id_comment).append(formTemplate);
 }
