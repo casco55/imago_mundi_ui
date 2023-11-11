@@ -1,5 +1,4 @@
 .comments_container {
-  background-color: aquamarine;
   padding: 1rem 1rem;
 }
 textarea {
@@ -7,4 +6,24 @@ textarea {
   height: 5rem;
   resize: none;
   padding: 0.5rem;
+}
+.btn-link-cancel {
+  color: red;
+}
+.tiny-text {
+  font-size: 0.8rem;
+}
+.validation-error {
+  color: red;
+  font-size: 0.75rem;
+  text-decoration: underline;
+}
+p {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.comment_bubble {
+  background-color: #aec6cf;
 }
