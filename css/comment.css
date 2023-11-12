@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant&display=swap");
 .comments_container {
   padding: 1rem 1rem;
 }
@@ -12,6 +13,7 @@ textarea {
 }
 .tiny-text {
   font-size: 0.8rem;
+  font-weight: 600;
 }
 .validation-error {
   color: red;
@@ -26,4 +28,19 @@ p {
 }
 .comment_bubble {
   background-color: #aec6cf;
+  font-family: "Assistant", sans-serif;
+  color: #000000;
+}
+.comentary_box_font {
+  font-family: "Assistant", sans-serif;
+}
+.user_name_comentary {
+  font-weight: 800;
+}
+.title {
+  font-weight: bold;
+}
+.form-group {
+  font-family: "Assistant", sans-serif !important;
+  font-weight: 600;
 }

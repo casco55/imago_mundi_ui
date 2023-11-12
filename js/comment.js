@@ -49,15 +49,12 @@ function loadComments() {
 function showComments(comments, container) {
   $.each(comments, function (index, comment) {
     var commentTemplate = `<div class="d-flex flex-column" id="comment_container_${comment.id_comment}">`;
-    commentTemplate += `<span class="">${comment.user_name}</span>`;
+    commentTemplate += `<span class="comentary_box_font user_name_comentary">${comment.user_name}</span>`;
     commentTemplate += `<div class="d-flex flex-column" id="comment_${comment.id_comment}">`;
-    commentTemplate +=
-      "<p class='p-2 comment_bubble mb-0 tiny-text'>" +
-      comment.comment +
-      comment.id_comment +
-      "</p>";
+    commentTemplate += "<p class='p-2 comment_bubble mb-0'>" + comment.comment;
+    ("</p>");
     commentTemplate += `<div class="d-flex flex-row align-items-center mt-0">`;
-    commentTemplate += `<span class="tiny-text">${comment.comment_date} ${comment.comment_time}</span>`;
+    commentTemplate += `<span class="comentary_box_font tiny-text">${comment.comment_date} ${comment.comment_time}</span>`;
     commentTemplate += `<button class="btn btn-sm btn-link" id="id_resp_${comment.id_comment}" onclick="display_reply_form(${comment.id_comment}, '${comment.user_name}')">Responder</button>`;
     commentTemplate += "</div>";
     const replyForm = replyComment(comment.id_comment);
