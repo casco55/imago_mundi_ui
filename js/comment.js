@@ -2,7 +2,6 @@ $(document).ready(function () {
   loadComments();
 });
 const path = window.location.pathname;
-console.log(path);
 /* eliminar slash y .html del path */
 const pathName = path.substring(1, path.length - 5);
 console.log(pathName);
@@ -15,6 +14,7 @@ function loadComments() {
     dataType: "json",
     //loading
     beforeSend: function () {
+      console.log("Before send function called");
       $("#comments_container").html(
         '<div class="d-flex justify-content-center"><div class="spinner-border text-info" role="status"><span class="visually-hidden">Loading...</span></div></div>'
       );
@@ -33,16 +33,20 @@ function loadComments() {
       }
       showComments(data.data, $("#comments_container"));
     },
-    error: function (error) {
-      console.log(error);
-      $("#comments_container").html(
-        `<div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Error!</h4>
-        <p>${error.responseJSON.message}</p>
-        <hr>
-        <p class="mb-0">Por favor contacte al administrador.</p>
-      </div>`
-      );
+    complete: function (xhr, textStatus) {
+      if (textStatus === "error" || !xhr.responseText) {
+        console.log("Complete - Status Text:", textStatus);
+        console.log("Complete - Status Code:", xhr.status);
+        // Resto del código...
+        $("#comments_container").html(
+          `<div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Error!</h4>
+          <p>${xhr.statusText}</p>
+          <hr>
+          <p class="mb-0">Por favor contacte al administrador.</p>
+        </div>`
+        );
+      }
     },
   });
 }
@@ -129,8 +133,20 @@ function sendComment() {
       comment = $("#principal_comment_textarea").val("");
       loadComments();
     },
-    error: function (error) {
-      console.log(error);
+    complete: function (xhr, textStatus) {
+      if (textStatus === "error" || !xhr.responseText) {
+        console.log("Complete - Status Text:", textStatus);
+        console.log("Complete - Status Code:", xhr.status);
+        // Resto del código...
+        $("#comments_container").html(
+          `<div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Error!</h4>
+          <p>${xhr.statusText}</p>
+          <hr>
+          <p class="mb-0">Por favor contacte al administrador.</p>
+        </div>`
+        );
+      }
     },
   });
 }
@@ -165,8 +181,20 @@ function submitAnswer(id_comment) {
       comment = $(`#reply_comment_textarea${id_comment}`).val("");
       loadComments();
     },
-    error: function (error) {
-      console.log(error);
+    complete: function (xhr, textStatus) {
+      if (textStatus === "error" || !xhr.responseText) {
+        console.log("Complete - Status Text:", textStatus);
+        console.log("Complete - Status Code:", xhr.status);
+        // Resto del código...
+        $("#comments_container").html(
+          `<div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Error!</h4>
+          <p>${xhr.statusText}</p>
+          <hr>
+          <p class="mb-0">Por favor contacte al administrador.</p>
+        </div>`
+        );
+      }
     },
   });
 }
