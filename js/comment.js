@@ -9,7 +9,7 @@ let pathType = "";
 !pathName ? (pathType = "index") : (pathType = pathName);
 function loadComments() {
   $.ajax({
-    url: `http://localhost/imago_mundi/comment/${pathType}`,
+    url: `/api/comment/${pathType}`,
     type: "GET",
     dataType: "json",
     //loading
@@ -124,7 +124,7 @@ function sendComment() {
     comment: comment,
   };
   $.ajax({
-    url: `http://localhost/imago_mundi/comment/${pathType}`,
+    url: `/api/comment/${pathType}`,
     type: "POST",
     dataType: "json",
     data: data,
@@ -172,7 +172,7 @@ function submitAnswer(id_comment) {
     comment: comment,
   };
   $.ajax({
-    url: `http://localhost/imago_mundi/answer/${pathName}/${id_comment}`,
+    url: `/api/answer/${pathName}/${id_comment}`,
     type: "POST",
     dataType: "json",
     data: data,
