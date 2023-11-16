@@ -1,0 +1,3 @@
+BBDD: imagomun_comments
+usuario: imagomun_admin
+contraseña: 1M4GOMUND1C0MM3NTS
